@@ -21,7 +21,7 @@ public class BankAccountsService {
 	public List<BankAccounts> getBankAccounts(){
 		return this.bRepo.findAll();
 	}
-
+	
 
 	public BankAccounts findBankAccountsById(Long id) {
 		return this.bRepo.findById(id).orElse(null);
@@ -30,12 +30,17 @@ public class BankAccountsService {
 //	public Ideas findUserIdofCreator(long userIdOfCreator) {
 //		return this.iRepofind
 //	}
+	
+	
 	public BankAccounts create(BankAccounts account) {
 		return this.bRepo.save(account);
 	}
 	public BankAccounts update(BankAccounts account) {
 		return this.bRepo.save(account);
 	}
+
+	
+	
 	public void delete(Long id) {
 		this.bRepo.deleteById(id);
 	}

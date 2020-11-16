@@ -22,23 +22,21 @@ public class BankAccounts {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	@NotBlank
-	private String name;
-	@NotBlank
-	private String accountType;
+	private Double checkingBalance;
+	private Double savingsBalance;
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name= "user_id")
 	private User bankuser;
-	@ManyToMany(fetch=FetchType.LAZY)
-	@JoinTable(
-			
-			name="bank_users",
-			joinColumns = @JoinColumn(name="account_id"),
-			inverseJoinColumns = @JoinColumn(name= "user_id")
-			
-			)
+//	@ManyToMany(fetch=FetchType.LAZY)
+//	@JoinTable(
+//			
+//			name="bank_users",
+//			joinColumns = @JoinColumn(name="account_id"),
+//			inverseJoinColumns = @JoinColumn(name= "user_id")
+//			
+//			)
 
-	private List<User> accountOwner;
+//	private List<User> accountOwner;
 
 	public BankAccounts() {
 		
@@ -51,26 +49,26 @@ public class BankAccounts {
 		this.id = id;
 	}
 
-	public List<User> getAccountOwner() {
-		return accountOwner;
+
+
+
+
+	public Double getCheckingBalance() {
+		return checkingBalance;
 	}
 
-	public void setAccountOwner(List<User> accountOwner) {
-		this.accountOwner = accountOwner;
+	public void setCheckingBalance(Double checkingBalance) {
+		this.checkingBalance = checkingBalance;
 	}
 
-	public String getName() {
-		return name;
+	public Double getSavingsBalance() {
+		return savingsBalance;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	public void setSavingsBalance(Double savingsBalance) {
+		this.savingsBalance = savingsBalance;
 	}
-	public String getAccountType() {
-		return accountType;
-	}
-	public void setAccountType(String accountType) {
-		this.accountType = accountType;
-	}
+
 	public User getBankuser() {
 		return bankuser;
 	}

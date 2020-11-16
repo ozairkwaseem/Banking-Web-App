@@ -40,16 +40,15 @@ public class User {
 	private String passwordValidation;
 	@OneToMany(mappedBy="bankuser", cascade = CascadeType.ALL, 	fetch=FetchType.LAZY)
 	private List<BankAccounts> accountsCreated;
-	@ManyToMany(fetch=FetchType.LAZY)
-	@JoinTable(
-			
-			name="bank_users",
-			joinColumns = @JoinColumn(name="user_id"),
-			inverseJoinColumns = @JoinColumn(name= "account_id")
-			
-			)
+//	@ManyToMany(fetch=FetchType.LAZY)
+//	@JoinTable(
+//			
+//			name="bank_users",
+//			joinColumns = @JoinColumn(name="user_id"),
+//			inverseJoinColumns = @JoinColumn(name= "account_id")
+//			
+//			)
 	
-	private List<BankAccounts> accountOwners;
 
 	public User() {
 }
@@ -125,14 +124,6 @@ public class User {
 	}
 
 
-	public List<BankAccounts> getAccountOwners() {
-		return accountOwners;
-	}
-
-
-	public void setAccountOwners(List<BankAccounts> accountOwners) {
-		this.accountOwners = accountOwners;
-	}
 
 
 }
